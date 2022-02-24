@@ -8,3 +8,60 @@
 
 @import 'media';
 
+.header-top {
+  color: $white;
+  background-color: $dark-800;
+  padding: 14px 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    @extend %sans-700;
+    font-size: 13px;
+    position: relative;
+    letter-spacing: 0.03em;
+  }
+
+  &__contacts {
+    display: flex;
+  }
+
+  &__adress {
+    padding-left: 44px;
+    margin-right: 50px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url(../images/icons/address-icon.svg);
+      background-position: center;
+      top: -4px;
+      left: 0;
+      width: 32px;
+      height: 22px;
+    }
+  }
+
+  &__phone {
+    padding-left: 35px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url(../images/icons/tel-icon.svg);
+      background-position: center;
+      top: -4px;
+      left: 285px;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 25px;
+  }
+}
