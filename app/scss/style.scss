@@ -260,6 +260,29 @@
   &__contact {
     margin-bottom: 18px;
   }
+  &__social{
+    display: flex;
+    &-item{
+      margin-right: 12px;
+    }
+    &-link{
+      display: block;
+      width: 32px;
+      height: 32px;
+      &--face{
+        background-image: url(../images/icons/social/facebook-icon.svg);
+      }
+      &--youtube{
+        background-image: url(../images/icons/social/youtube-icon.svg);
+      }
+      &--tele{
+        background-image: url(../images/icons/social/telegram-icon.svg);
+      }
+      &--inst{
+        background-image: url(../images/icons/social/instagram-icon.svg);
+      }
+    }
+  }
 }
 
 .footer-bottom {
