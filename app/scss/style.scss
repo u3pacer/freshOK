@@ -199,6 +199,40 @@
 
 }
 
+.top-slider {
+  &__item {
+    height: 600px;
+    background-size: cover;
+  }
+
+  &__inner {
+    margin-right: 15px;
+    padding: 24px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    position: absolute;
+    max-width: 1290px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__title{
+    @extend %ruda-900;
+    text-transform: uppercase;
+    font-size: 60px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  &__text{
+    margin-bottom: 32px;
+  }
+  &__sale{
+    color: $red-900;
+  }
+
+  &__img {}
+}
+
 .footer {
   color: $white;
   line-height: 1;
@@ -231,8 +265,6 @@
     border: none;
     margin-right: -4px;
     padding: 12px;
-    align-items: center;
-
   }
 
   &__btn {
@@ -260,25 +292,32 @@
   &__contact {
     margin-bottom: 18px;
   }
-  &__social{
+
+  &__social {
     display: flex;
-    &-item{
+
+    &-item {
       margin-right: 12px;
     }
-    &-link{
+
+    &-link {
       display: block;
       width: 32px;
       height: 32px;
-      &--face{
+
+      &--face {
         background-image: url(../images/icons/social/facebook-icon.svg);
       }
-      &--youtube{
+
+      &--youtube {
         background-image: url(../images/icons/social/youtube-icon.svg);
       }
-      &--tele{
+
+      &--tele {
         background-image: url(../images/icons/social/telegram-icon.svg);
       }
-      &--inst{
+
+      &--inst {
         background-image: url(../images/icons/social/instagram-icon.svg);
       }
     }
@@ -299,7 +338,8 @@
   &__payway {
     display: flex;
   }
-  &__img:not(:last-child){
-   margin-right: 24px;   
+
+  &__img:not(:last-child) {
+    margin-right: 24px;
   }
 }
