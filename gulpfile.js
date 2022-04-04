@@ -5,15 +5,15 @@ const {
   parallel,
   series
 } = require('gulp');
-const scss         = require('gulp-sass')(require('sass'));
-const concat       = require('gulp-concat');
+const scss = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
-const uglify       = require('gulp-uglify');
-const imagemin     = require('gulp-imagemin');
-const del          = require('del');
-const browserSync  = require('browser-sync').create();
+const uglify = require('gulp-uglify');
+const imagemin = require('gulp-imagemin');
+const del = require('del');
+const browserSync = require('browser-sync').create();
 
-function browsersync () {
+function browsersync() {
   browserSync.init({
     server: {
       baseDir: 'app/'
@@ -38,9 +38,11 @@ function styles() {
 
 function scripts() {
   return src([
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/slick-carousel/slick/slick.js',
-    'app/js/main.js'
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/slick-carousel/slick/slick.js',
+      'node_modules/mixitup/dist/mixitup.js',
+      'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+      'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
@@ -49,27 +51,39 @@ function scripts() {
 
 function images() {
   return src('app/images/**/*.*')
-  .pipe(imagemin([
-    imagemin.gifsicle({interlaced: true}),
-	imagemin.mozjpeg({quality: 75, progressive: true}),
-	imagemin.optipng({optimizationLevel: 5}),
-	imagemin.svgo({
-		plugins: [
-			{removeViewBox: true},
-			{cleanupIDs: false}
-		]
-	})
-  ]))
-  .pipe(dest('dist/images'))
+    .pipe(imagemin([
+      imagemin.gifsicle({
+        interlaced: true
+      }),
+      imagemin.mozjpeg({
+        quality: 75,
+        progressive: true
+      }),
+      imagemin.optipng({
+        optimizationLevel: 5
+      }),
+      imagemin.svgo({
+        plugins: [{
+            removeViewBox: true
+          },
+          {
+            cleanupIDs: false
+          }
+        ]
+      })
+    ]))
+    .pipe(dest('dist/images'))
 }
 
 function build() {
   return src([
-    'app/**/*.html',
-    'app/css/style.min.css',
-    'app/js/main.min.js'
-  ], {base: 'app'})
-  .pipe(dest('dist'))
+      'app/**/*.html',
+      'app/css/style.min.css',
+      'app/js/main.min.js'
+    ], {
+      base: 'app'
+    })
+    .pipe(dest('dist'))
 }
 
 function cleanDist() {

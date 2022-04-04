@@ -18,6 +18,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.6.0",
+    "magnific-popup": "^1.1.0",
+    "mixitup": "^3.3.1",
     "sass": "^1.49.7",
     "slick-carousel": "^1.8.1"
   }
